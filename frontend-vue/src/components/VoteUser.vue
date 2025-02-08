@@ -21,21 +21,37 @@
       };
     },
     async created() {
+      if (!localStorage.getItem('isLoggedIn')) {
+        window.location.href = '/'; 
+      }
       const response = await axios.get('http://localhost:8000/candidates/');
       this.candidates = response.data;
-      this.user = this.$route.params.user;
+      this.user = this.$route.query.user ? JSON.parse(this.$route.query.user) : null;
     },
     methods: {
       async vote(candidateId) {
-        const response = await axios.post('http://localhost:8000/vote/', {
-          user_id: this.user.id,
-          candidate_id: candidateId
-        });
+      try {
+        const response = await axios.post(
+          'http://localhost:8000/vote/',
+          {
+            nim: this.user.nim, 
+            candidate_id: candidateId
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          }
+        );
         alert(response.data.message);
         if (response.status === 200) {
-          this.$router.push('/login');
+          this.$router.push('/'); // ini path login
         }
+      } catch (error) {
+        console.error("Error saat voting:", error.response?.data?.message || "Terjadi kesalahan saat voting");
+        alert(error.response?.data?.message || "Terjadi kesalahan saat voting");
       }
     }
+}
   };
   </script>

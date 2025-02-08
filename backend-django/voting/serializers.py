@@ -1,15 +1,15 @@
 from rest_framework import serializers
-from .models import User, Token, Candidate
+from .models import User, Candidate #, Token
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['nim', 'email']
 
-class TokenSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Token
-        fields = ['user', 'token']
+# class TokenSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Token
+#         fields = ['user', 'token']
 
 class CandidateSerializer(serializers.ModelSerializer):
     class Meta:

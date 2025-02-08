@@ -16,6 +16,12 @@ Including another URLconf
 """
 from django.urls import path
 from voting import views
+from rest_framework.routers import DefaultRouter
+from voting.views import CandidateViewSet
+
+
+router = DefaultRouter()
+# router.register(r'candidates', CandidateViewSet)
 
 urlpatterns = [
     path('', views.home),
@@ -23,4 +29,5 @@ urlpatterns = [
     path('verify_token/', views.verify_token, name='verify_token'),
     path('vote/', views.vote, name='vote'),
     path('candidates/', views.candidates, name='candidates'),
+    # path('api/', include(router.urls)),
 ]
