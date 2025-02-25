@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+  <div class="flex flex-col items-center justify-center min-h-screen bg-blue-950">
     <div class="bg-white p-6 rounded-lg shadow-md w-96">
       <h2 class="text-xl font-semibold text-center mb-4">Verify Your Token</h2>
 

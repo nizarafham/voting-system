@@ -1,14 +1,35 @@
 <template>
-    <div>
-      <h2>Choose your candidate:</h2>
-      <div v-for="candidate in candidates" :key="candidate.id">
-        <h3>{{ candidate.name }} & {{ candidate.vice_name }}</h3>
-        <p><strong>Vision:</strong> {{ candidate.vision }}</p>
-        <p><strong>Mission:</strong> {{ candidate.mission }}</p>
-        <button @click="vote(candidate.id)">Vote</button>
+  <div class="flex flex-col items-center justify-center min-h-screen bg-blue-950">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-2xl">
+      <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Choose your candidate:</h2>
+      <div class="flex flex-wrap -mx-4">
+        <div
+          v-for="candidate in candidates"
+          :key="candidate.id"
+          class="w-full md:w-1/2 px-4 mb-8"
+        >
+          <div class="border p-6 rounded-md flex flex-col justify-between h-full">
+            <div>
+              <h3 class="text-xl font-semibold mb-3">
+                {{ candidate.name }} & {{ candidate.vice_name }}
+              </h3>
+              <p class="mb-2"><strong>Vision:</strong> {{ candidate.vision }}</p>
+              <p class="mb-3"><strong>Mission:</strong> {{ candidate.mission }}</p>
+            </div>
+            <div class="flex justify-center">
+              <button
+                @click="vote(candidate.id)"
+                class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition"
+              >
+                Vote
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </template>
+  </div>
+</template>
   
   <script>
   import axios from 'axios';

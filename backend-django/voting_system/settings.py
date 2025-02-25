@@ -88,7 +88,7 @@ REST_FRAMEWORK = {
 # Database settings
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',  # Sesuaikan dengan database yang Anda gunakan
+        'ENGINE': 'django.db.backends.mysql',  # Sesuaikan dengan database yang Anda gunakan
         'NAME': config('DB_NAME'),  # Ambil dari .env
         'USER': config('DB_USER'),  # Ambil dari .env
         'PASSWORD': config('DB_PASSWORD'),  # Ambil dari .env
