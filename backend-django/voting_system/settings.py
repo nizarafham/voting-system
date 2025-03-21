@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config
+# from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -55,7 +55,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "voting_system.urls"
 
-CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default='', cast=lambda v: [s.strip() for s in v.split(',') if s.strip()])
+# CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default='', cast=lambda v: [s.strip() for s in v.split(',') if s.strip()])
 
 CORS_ALLOW_ALL_ORIGINS = True
 TEMPLATES = [
@@ -89,11 +89,11 @@ REST_FRAMEWORK = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # Sesuaikan dengan database yang Anda gunakan
-        'NAME': config('DB_NAME'),  # Ambil dari .env
-        'USER': config('DB_USER'),  # Ambil dari .env
-        'PASSWORD': config('DB_PASSWORD'),  # Ambil dari .env
-        'HOST': config('DB_HOST', default='localhost'),  # Ambil dari .env, default 'localhost'
-        'PORT': config('DB_PORT', default='5432', cast=int),  # Ambil dari .env, default 5432
+        'NAME': "voting-system",#config('DB_NAME'),  # Ambil dari .env
+        'USER': "root",#config('DB_USER'),  # Ambil dari .env
+        'PASSWORD': "nizar453",#config('DB_PASSWORD'),  # Ambil dari .env
+        'HOST': "localhost",#config('DB_HOST', default='localhost'),  # Ambil dari .env, default 'localhost'
+        'PORT': "3306"#config('DB_PORT', default='5432', cast=int),  # Ambil dari .env, default 5432
     }
 }
 
@@ -136,5 +136,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')  
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = 'nizarafham17@gmail.com'
+EMAIL_HOST_PASSWORD = 'hxmz zobg rumm uovy'

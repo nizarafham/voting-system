@@ -126,11 +126,10 @@ def candidates(request):
     serializer = CandidateSerializer(candidates, many=True)
     return Response(serializer.data)
 
-# def cleanup_incomplete_users():
-#     time_threshold = timezone.now() - timedelta(minutes=5)
-    
-#     incomplete_users = User.objects.filter(is_verified=False, last_activity__lt=time_threshold)
-#     incomplete_users.delete()
+@api_view(['GET'])
+def session(request):
+    return Response({'message': 'Session endpoint'}, status=status.HTTP_200_OK)
+
 
 
 from rest_framework import viewsets
